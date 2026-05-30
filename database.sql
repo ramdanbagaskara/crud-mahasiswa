@@ -1,8 +1,3 @@
--- =============================================
--- Script SQL: Aplikasi CRUD Mahasiswa
--- Jalankan di phpMyAdmin atau MySQL CLI
--- =============================================
-
 -- 1. Buat database
 CREATE DATABASE IF NOT EXISTS db_mahasiswa
     CHARACTER SET utf8mb4
@@ -23,7 +18,7 @@ CREATE TABLE IF NOT EXISTS mahasiswa (
     PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- 4. Insert data sample (opsional)
+-- 4. Insert data sample 
 INSERT INTO mahasiswa (nim, nama, jurusan, semester, jenis_kelamin) VALUES
 ('2021001001', 'Ahmad Fauzi',       'Teknik Informatika', 4, 'Laki-laki'),
 ('2021001002', 'Siti Rahayu',       'Sistem Informasi',   4, 'Perempuan'),
