@@ -4,14 +4,14 @@ require_once 'koneksi.php';
 $pesan = '';
 $error = [];
 
-// Ambil ID dari URL
+
 $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
 if ($id <= 0) {
     header('Location: index.php');
     exit;
 }
 
-// Ambil data yang akan diedit (pakai prepared statement)
+
 $stmt = mysqli_prepare($conn, "SELECT * FROM mahasiswa WHERE id = ?");
 mysqli_stmt_bind_param($stmt, "i", $id);
 mysqli_stmt_execute($stmt);
@@ -24,7 +24,7 @@ if (!$data) {
     exit;
 }
 
-// Proses form update
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nim     = trim($_POST['nim'] ?? '');
     $nama    = trim($_POST['nama'] ?? '');
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 
-    // Update $data agar form menampilkan input terbaru (bukan data DB lama)
+    
     $data['nim']          = $_POST['nim'] ?? $data['nim'];
     $data['nama']         = $_POST['nama'] ?? $data['nama'];
     $data['jurusan']      = $_POST['jurusan'] ?? $data['jurusan'];
